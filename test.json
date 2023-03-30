@@ -1,0 +1,162 @@
+{
+"openapi": "1.0.0",
+"info": {
+"title": "Business Services - Digital Menu",
+"version": "1.0.0"
+},
+"paths": {
+"/digital-menu/flight/menu/en": {
+"patch": {
+"description": "Get the Digital Menu details for a flight",
+"tags": [
+"digital-menu"
+],
+"requestBody": {
+"description": "flight number, departure station,scheduled date and cabin class to be sent as request body",
+"required": true,
+"content": {
+"*/*": {
+"schema": {
+"type": "object",
+"properties": {
+"flightNumber": {
+"description": "flight number",
+"type": "string",
+"required": [
+"true"
+]
+},
+"departureStation": {
+"description": "origin airport",
+"type": "string",
+"required": [
+"true"
+]
+},
+"scheduledDate": {
+"description": "date of travel",
+"type": "string",
+"required": [
+"true"
+]
+},
+"cabinClass": {
+"description": "class of travel",
+"type": "string",
+"required": [
+"true"
+]
+}
+}
+}
+}
+}
+},
+"responses": {
+"200": {
+"description": "menu details retrived successfully for the flight",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/successResponse"
+}
+}
+}
+},
+"400": {
+"description": "Bad request",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Error"
+}
+}
+}
+}
+}
+}
+}
+},
+"components": {
+"schemas": {
+"successResponse": {
+"languages": [
+{
+"code": "string",
+"title": "string"
+}
+],
+"openingText": {
+"icon": "string",
+"title": "string",
+"altText": "string"
+},
+"standardText": [
+{
+"code": "string",
+"title": "string",
+"desc": "string",
+"type": "string",
+"additionalText": "string",
+"TypeId": "string"
+}
+],
+"categories": [
+{
+"id": "string",
+"subTitle": "string",
+"title": "string",
+"imageUrl": "string",
+"iconUrl": "string",
+"standardText": [
+{
+"code": "string",
+"title": "string",
+"desc": "string",
+"type": "string",
+"additionalText": "string",
+"TypeId": "string"
+}
+],
+"subCategories": [
+{
+"id": "string",
+"title": "string",
+"standardText": [
+{
+"code": "string",
+"title": "string",
+"desc": "string",
+"type": " string",
+"additionalText": "string",
+"TypeId": "string"
+}
+],
+"items": [
+{
+"code": "string",
+"title": "string",
+"desc": "string",
+"icons": [
+{
+"title": "string",
+"icon": "string",
+"altText": "string"
+}
+]
+}
+]
+}
+]
+}
+]
+},
+"Error": {
+"status": {
+"code": "string",
+"description": "string"
+}
+}
+}
+}
+}
